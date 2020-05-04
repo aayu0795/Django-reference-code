@@ -82,7 +82,7 @@ class Passport(models.Model):
     person = models.OneToOneField(Person, on_delete=models.CASCADE)
     passport_id = models.CharField(max_length=8)
     issue_date = models.DateField(auto_now_add=True)
-    expire_date = models.DateField(auto_now_add=True)
+    expire_date = models.DateField()
     country = models.CharField(max_length=50)
 
     class Meta:
@@ -99,7 +99,7 @@ class Passport(models.Model):
 
 # Signal reciever function
 def update_passport_expiry_date(sender, instance, **kwargs):
-    instance.expire_date += timedelta(days=1825)
+    instance.expire_date = instance.issue_date + timedelta(days=1825)
 
 
 # Update the Expire date of passport by 5 year once the post_save signal is received
