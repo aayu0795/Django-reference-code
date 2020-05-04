@@ -3,6 +3,9 @@ from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
+    """
+    Register Custom management command
+    """
     help = 'Renames a Django project'
 
     def add_arguments(self, parser):
