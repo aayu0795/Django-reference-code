@@ -1,0 +1,13 @@
+venv
+**/*.pyc
+**/__pycache__
+media
+.DS_Store
+*.sqlite3
+*.venv
+*static_root/
+
+# Accept these files in the repository
+!.gitignore
+/.venv
+!.vscode
